@@ -14,7 +14,7 @@ class Circle:
         Returns:
             bool: True if the circle is valid, False otherwise
         """
-        if self.radius<0:
+        if self.radius>0:
             return True
         else :
             False

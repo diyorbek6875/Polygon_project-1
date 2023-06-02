@@ -16,13 +16,11 @@ class Triangle:
         Returns:
             bool: True if the triangle is valid, False otherwise
         '''
-        a2=self.a+self.b
-
-        if a2>self.c or self.b+self.c>self.a or self.a+self.c>self.b:
+        if self.a+self.b>self.c and self.b+self.c>self.a and self.c+self.a>self.b:
             return True
         else:
             return False
-        
+
     
     def get_type(self) -> str:
         '''
@@ -30,11 +28,11 @@ class Triangle:
 
         Note: typies are 'Teng yonli', 'Teng tomonli', 'Turli tomonli'
         '''
-        if self.a == self.b:
+        if self.a==self.b and self.a==self.c:
+            return "Teng tomonli"
+        elif self.a==self.b or self.a==self.c or self.b==self.c:
             return 'Teng yonli'
-        if self.a==self.b==self.c:
-            return 'Teng tomonli'
-        if self.a!=self.b!=self.c:
+        else:
             return 'Turli tomonli'
         
     def perimeter(self) -> float:
@@ -45,9 +43,7 @@ class Triangle:
         Returns:
             float: return perimeter of the triangle if the triangle is valid, 0 otherwise
         '''
-        
-        a1= self.a+self.b+self.c
-        return a1
+        return self.a+self.b+self.c
 
     def area(self) -> float:
         '''
@@ -58,5 +54,5 @@ class Triangle:
             float: return area of the triangle if the triangle is valid, 0 otherwise
         '''
         p=(self.a+self.b+self.c)/2
-        s=sqrt((p-self.a)*(p-self.b)*(p-self.c))
+        s=sqrt(p*(p-self.a)*(p-self.b)*(self.c))
         return s
